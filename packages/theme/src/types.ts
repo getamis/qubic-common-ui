@@ -4,9 +4,7 @@ export type TColor = string;
 
 export type TStyle = StyleProp<ViewStyle> | StyleProp<TextStyle> | StyleProp<ImageStyle>;
 
-export type TPalette = {
-  [colorName: string]: TColor;
-};
+export type TPalette<KeyOfPalette extends string | symbol = string> = Record<KeyOfPalette, TColor>;
 
 export type TOverride<TProps> = {
   props: TProps & {
@@ -32,11 +30,23 @@ export type Overrides<TProps> = {
   };
 };
 
-export type Theme = {
+type MergeBy<T, K> = Omit<T, keyof K> & K;
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface CustomPalette {}
+
+type PaletteOptions = MergeBy<
+  {
+    palette: TPalette<string>;
+  },
+  CustomPalette
+>;
+
+export interface Theme {
   name: string;
-  palette: TPalette;
+  palette: PaletteOptions['palette'];
   overrides: Overrides<unknown>;
   extra?: {
     [key: string]: unknown;
   };
-};
+}
