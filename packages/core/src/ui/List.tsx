@@ -84,7 +84,7 @@ export interface ListProps<ItemT> extends VirtualizedListWithoutRenderItemProps<
   stickySectionHeadersEnabled?: boolean;
 }
 
-function ListBase<ItemT>(props: ListProps<ItemT> & { ref?: React.Ref<FlatList> }, ref: any) {
+function ListBase<ItemT>(props: ListProps<ItemT> & { ref?: React.Ref<FlatList> }, ref: any): JSX.Element | null {
   const { props: overridedProps, styles } = useOverride<ListProps<ItemT>>('List', props);
   const {
     contentContainerStyle,

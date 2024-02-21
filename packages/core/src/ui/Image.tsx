@@ -91,6 +91,15 @@ export interface ImageProps extends $Diff<OriginImageProps, { source: ImageSourc
    * The color of the progress type placeholder.
    */
   progressColor?: TColor;
+  referrerPolicy?:
+    | 'no-referrer'
+    | 'no-referrer-when-downgrade'
+    | 'origin'
+    | 'origin-when-cross-origin'
+    | 'same-origin'
+    | 'strict-origin'
+    | 'strict-origin-when-cross-origin'
+    | 'unsafe-url';
 }
 
 const Image: React.FC<ImageProps> = React.memo<ImageProps>(props => {

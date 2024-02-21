@@ -166,7 +166,7 @@ const ListItem = React.memo<ListItemProps>(props => {
         onPress(e, extra);
       }
     },
-    [onPress, extra],
+    [onPress, extra, disabled],
   );
 
   const finalStyle = useMemoStyles([defaultStyles.root, styles.root]);

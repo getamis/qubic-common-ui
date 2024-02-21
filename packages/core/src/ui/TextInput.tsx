@@ -31,6 +31,7 @@ const defaultStyles = StyleSheet.create({
 });
 
 export interface TextInputProps extends $Diff<OriginTextInputProps, { style?: unknown; children?: unknown }> {
+  ref?: any;
   /**
    * The variant to use.
    */

@@ -69,7 +69,7 @@ const Button: React.FC<ButtonProps> = React.memo<ButtonProps>(props => {
       <TouchableOpacity disabled={disabled} {...otherProps}>
         <View style={finalButtonStyle}>
           {icon && <View style={finalIconStyle}>{icon}</View>}
-          {icon && title && <View style={{ width: 8 }} />}
+          {icon && title && <View style={{ width: 4 }} />}
           {title && <Text style={finalTextStyle}>{title}</Text>}
         </View>
       </TouchableOpacity>
