@@ -20,6 +20,10 @@ export interface TextProps extends $Diff<OriginTextProps, { style?: unknown }> {
    * The text to display or nested Text components.
    */
   children: ReactNode;
+  /**
+   * The ref to text.
+   */
+  ref?: React.Ref<OriginText> | undefined;
 }
 
 const Text = React.forwardRef<OriginText, TextProps>((props, ref) => {
