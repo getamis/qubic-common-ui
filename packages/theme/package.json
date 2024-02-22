@@ -1,5 +1,6 @@
 {
-  "name": "@react-native-cask-ui/theme",
+  "name": "@qubic-js/react-native-cask-ui-theme",
+  "homepage": "https://github.com/getamis/qubic-common-ui",
   "version": "1.0.3",
   "description": "",
   "license": "MIT",
