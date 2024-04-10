@@ -1,7 +1,5 @@
 {
   "name": "react-native-cask-ui",
-  "version": "1.0.0",
-  "author": "azurechen <azure517981@gmail.com>",
   "private": "true",
   "workspaces": {
     "packages": [
@@ -26,7 +24,7 @@
   },
   "scripts": {
     "storybook": "cd storybook && yarn storybook",
-    "publish": "lerna publish"
+    "release": "lerna publish"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.9.0",
@@ -39,7 +37,7 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-native": "^3.9.1",
     "husky": "^4.3.0",
-    "lerna": "^3.22.1",
+    "lerna": "5.1.8",
     "lint-staged": "^10.4.0",
     "prettier": "^2.1.2",
     "typescript": "~3.9.5"
