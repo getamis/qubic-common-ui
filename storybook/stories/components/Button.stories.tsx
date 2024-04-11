@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ButtonProps } from '@react-native-cask-ui/core';
+import { Button, ButtonProps } from '@qubic-js/react-native-cask-ui-core';
 import { Story, Meta } from '@storybook/react';
 import Feather from 'react-native-vector-icons/Feather';
 

@@ -15,7 +15,6 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@react-native-cask-ui/theme": "^1.0.3",
     "react-content-loader": "^5.1.2",
     "react-native-draggable-flatlist": "^1.1.9",
     "react-native-safe-area-context": "4.4.1",
@@ -23,7 +22,8 @@
     "react-native-svg-web": "^1.0.9",
     "react-native-tab-view": "2.14.3",
     "react-navigation-header-buttons": "^3.0.1",
-    "utility-types": "^3.10.0"
+    "utility-types": "^3.10.0",
+    "@qubic-js/react-native-cask-ui-theme": "^1.2.2"
   },
   "devDependencies": {
     "@types/react": "^16.9.49",

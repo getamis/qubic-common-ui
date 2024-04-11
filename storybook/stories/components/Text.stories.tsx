@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TextProps } from '@react-native-cask-ui/core';
+import { Text, TextProps } from '@qubic-js/react-native-cask-ui-core';
 import { Story, Meta } from '@storybook/react';
 
 const LONG_TEXT =

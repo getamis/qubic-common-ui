@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { List, ListProps, ListItem, AccessoryType } from '@react-native-cask-ui/core';
+import { List, ListProps, ListItem, AccessoryType } from '@qubic-js/react-native-cask-ui-core';
 import { Story, Meta } from '@storybook/react';
 
 const data = [1, 2, 3, 4, 5, 6, 7, 8, 9].map(i => `Item ${i}`);

@@ -21,8 +21,8 @@
       }
     },
     "import/core-modules": [
-      "@react-native-cask-ui/core",
-      "@react-native-cask-ui/theme"
+      "@qubic-js/react-native-cask-ui-core",
+      "@qubic-js/react-native-cask-ui-theme"
     ]
   },
   "rules": {

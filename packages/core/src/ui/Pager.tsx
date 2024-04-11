@@ -11,7 +11,7 @@ import {
   ScrollView,
 } from 'react-native';
 import { TabView, TabBar, Pager, SceneRendererProps } from 'react-native-tab-view';
-import { useOverride } from '@react-native-cask-ui/theme';
+import { useOverride } from '@qubic-js/react-native-cask-ui-theme';
 
 import PagerConfig from './PagerConfig';
 

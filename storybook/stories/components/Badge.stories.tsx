@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge, BadgeProps } from '@react-native-cask-ui/core';
+import { Badge, BadgeProps } from '@qubic-js/react-native-cask-ui-core';
 import { Story, Meta } from '@storybook/react';
 
 export default {

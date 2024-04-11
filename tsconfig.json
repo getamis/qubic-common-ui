@@ -3,7 +3,8 @@
     "declaration": true,
     "baseUrl": ".",
     "paths": {
-      "@react-native-cask-ui/*": ["./packages/*/src"]
+      "@qubic-js/react-native-cask-ui-core": ["./packages/core/src"],
+      "@qubic-js/react-native-cask-ui-theme": ["./packages/theme/src"]
     },
     "allowJs": true,
     "allowSyntheticDefaultImports": true,

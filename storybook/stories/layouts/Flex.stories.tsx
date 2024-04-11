@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Flex, FlexProps } from '@react-native-cask-ui/core';
+import { Flex, FlexProps } from '@qubic-js/react-native-cask-ui-core';
 import { Story, Meta } from '@storybook/react';
 
 export default {

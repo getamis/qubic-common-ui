@@ -1,6 +1,6 @@
 import React, { ReactNode, useMemo } from 'react';
 import { StyleSheet, TouchableOpacity, View, Text } from 'react-native';
-import { useOverride, useTheme } from '@react-native-cask-ui/theme';
+import { useOverride, useTheme } from '@qubic-js/react-native-cask-ui-theme';
 import { $Diff } from 'utility-types';
 
 import type { TouchableOpacityProps, ViewStyle, TextStyle, ImageStyle } from 'react-native';

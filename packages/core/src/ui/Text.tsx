@@ -1,6 +1,6 @@
 import React, { useMemo, ReactNode } from 'react';
 import { StyleSheet, Text as OriginText, TextProps as OriginTextProps } from 'react-native';
-import { useOverride } from '@react-native-cask-ui/theme';
+import { useOverride } from '@qubic-js/react-native-cask-ui-theme';
 import { $Diff } from 'utility-types';
 
 const defaultStyles = StyleSheet.create({
