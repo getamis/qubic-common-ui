@@ -1,7 +1,7 @@
 import { ComponentType } from 'react';
 import { KeyboardTypeOptions, NativeSyntheticEvent, TextInputFocusEventData } from 'react-native';
 
-import { TColor } from '@react-native-cask-ui/theme';
+import { TColor } from '@qubic-js/react-native-cask-ui-theme';
 
 type BaseProps = {
   variant?: string;

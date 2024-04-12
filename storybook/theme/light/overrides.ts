@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Overrides } from '@react-native-cask-ui/theme';
+import { Overrides } from '@qubic-js/react-native-cask-ui-theme';
 
 import palette from './palette';
 

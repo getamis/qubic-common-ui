@@ -12,7 +12,7 @@ import {
 import ContentLoader from 'react-content-loader';
 import { Path } from 'react-native-svg';
 // import * as Progress from 'react-native-progress';
-import { useOverride, useMemoStyles, TColor } from '@react-native-cask-ui/theme';
+import { useOverride, useMemoStyles, TColor } from '@qubic-js/react-native-cask-ui-theme';
 import { $Diff } from 'utility-types';
 
 const defaultStyles = StyleSheet.create({

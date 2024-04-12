@@ -3449,28 +3449,6 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
-"@react-native-cask-ui/core@*":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@react-native-cask-ui/core/-/core-1.1.0.tgz#1ed94193be628af179375ed122413fff9d1a313c"
-  integrity sha512-56iy9EaXmM4UkHyWHspy5xQsQPCoY+FRE/+udUjzkJZM0iiItMWEX6g3LEN6iuInldQmXfSM9BrAIpNTtirR9g==
-  dependencies:
-    "@react-native-cask-ui/theme" "^1.0.3"
-    react-content-loader "^5.1.2"
-    react-native-draggable-flatlist "^1.1.9"
-    react-native-safe-area-context "4.4.1"
-    react-native-svg "12.1.0"
-    react-native-svg-web "^1.0.9"
-    react-native-tab-view "2.14.3"
-    react-navigation-header-buttons "^3.0.1"
-    utility-types "^3.10.0"
-
-"@react-native-cask-ui/theme@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@react-native-cask-ui/theme/-/theme-1.0.3.tgz#9ba2a7c2a99f42b72de80a67039c9b9524b2f455"
-  integrity sha512-2duPXaOl7cN0IuNfVdK8Rvd9d3KWZ3DS3MnyxofRC/p8NUuR03kkjXhi/Xyk0tZTqM/y3pFPZouSYRUbYq8Q4w==
-  dependencies:
-    shallow-equal "^1.2.1"
-
 "@react-native-community/cli-clean@11.3.10":
   version "11.3.10"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-clean/-/cli-clean-11.3.10.tgz#70d14dd998ce8ad532266b36a0e5cafe22d300ac"

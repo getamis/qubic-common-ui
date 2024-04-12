@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardProps, Text } from '@react-native-cask-ui/core';
+import { Card, CardProps, Text } from '@qubic-js/react-native-cask-ui-core';
 import { Story, Meta } from '@storybook/react';
 
 export default {

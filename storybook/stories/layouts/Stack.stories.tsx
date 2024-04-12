@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Stack, StackProps } from '@react-native-cask-ui/core';
+import { Stack, StackProps } from '@qubic-js/react-native-cask-ui-core';
 import { Story, Meta } from '@storybook/react';
 
 export default {

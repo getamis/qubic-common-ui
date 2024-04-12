@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, ImageProps } from '@react-native-cask-ui/core';
+import { Image, ImageProps } from '@qubic-js/react-native-cask-ui-core';
 import { Story, Meta } from '@storybook/react';
 
 import TaipeiImage from '../assets/img_taipei.jpg';

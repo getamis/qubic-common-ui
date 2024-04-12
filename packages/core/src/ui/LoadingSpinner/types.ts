@@ -1,5 +1,5 @@
 import { ComponentType } from 'react';
-import { TColor } from '@react-native-cask-ui/theme';
+import { TColor } from '@qubic-js/react-native-cask-ui-theme';
 
 type BaseProps = {
   variant?: string;

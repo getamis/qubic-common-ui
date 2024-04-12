@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInput, TextInputProps } from '@react-native-cask-ui/core';
+import { TextInput, TextInputProps } from '@qubic-js/react-native-cask-ui-core';
 import { Story, Meta } from '@storybook/react';
 
 export default {

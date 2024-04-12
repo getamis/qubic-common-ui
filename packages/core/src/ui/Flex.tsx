@@ -1,6 +1,6 @@
 import React, { ReactNode, useMemo } from 'react';
 import { View, FlexAlignType, DimensionValue } from 'react-native';
-import { TColor, useMemoStyles } from '@react-native-cask-ui/theme';
+import { TColor, useMemoStyles } from '@qubic-js/react-native-cask-ui-theme';
 
 type JustifyContentType = 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
 
