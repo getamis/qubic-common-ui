@@ -4,14 +4,14 @@ import { shallowEqualObjects } from 'shallow-equal';
 
 import { TStyle, TOverride, Theme } from './types';
 
-const defaulThemeResult: Theme = {
+const defaultThemeResult: Theme = {
   name: '',
   palette: {},
   overrides: {},
   extra: {},
 };
 
-const ThemeContext = React.createContext<Theme>(defaulThemeResult);
+const ThemeContext = React.createContext<Theme>(defaultThemeResult);
 
 type ThemeProviderProps = {
   theme: Theme;

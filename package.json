@@ -1,5 +1,5 @@
 {
-  "name": "react-native-cask-ui",
+  "name": "react-common-ui",
   "private": "true",
   "workspaces": {
     "packages": [
