@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, DimensionValue } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useOverride, useMemoStyles } from '@qubic-js/react-native-cask-ui-theme';
 
@@ -80,7 +80,12 @@ export default React.memo<RatingProps>(props => {
         <View>
           <Ionicons name="md-star" size={iconSize} color={inactiveColor} />
           <View style={StyleSheet.absoluteFill}>
-            <Ionicons name="md-star" size={iconSize} color={activeColor} style={{ width: `${decimalValue * 100}%` }} />
+            <Ionicons
+              name="md-star"
+              size={iconSize}
+              color={activeColor}
+              style={{ width: `${decimalValue * 100}%` as DimensionValue }}
+            />
           </View>
         </View>
       );

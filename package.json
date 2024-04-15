@@ -24,7 +24,7 @@
   },
   "scripts": {
     "storybook": "cd storybook && yarn storybook",
-    "release": "lerna publish"
+    "release": "lerna publish --force-publish"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.9.0",
@@ -40,7 +40,7 @@
     "lerna": "5.1.8",
     "lint-staged": "^10.4.0",
     "prettier": "^2.1.2",
-    "typescript": "4.9.5"
+    "typescript": "4.2.2"
   },
   "license": "MIT"
 }

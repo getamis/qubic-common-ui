@@ -66,8 +66,8 @@ const variantOfSize = {
       paddingVertical: 8,
     },
     text: {
-      fontSize: 16,
-      lineHeight: 24,
+      fontSize: 18,
+      lineHeight: 27,
     },
   },
 };
