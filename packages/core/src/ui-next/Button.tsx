@@ -12,7 +12,7 @@ export type TPalette = Record<string, string>;
 
 export type TVariant = 'default' | 'outline' | 'plainText' | 'rounded';
 
-export type TSize = 'small' | 'medium' | 'large';
+export type TSize = 'small' | 'medium';
 
 interface TSxProp {
   root?: ViewStyle;
@@ -27,13 +27,13 @@ interface TSxProp {
 const variantOfSize = {
   small: {
     iconButton: {
-      width: 32,
-      height: 32,
+      width: 24,
+      height: 24,
     },
     button: {
       minHeight: 32,
-      paddingHorizontal: 12,
       paddingVertical: 8,
+      paddingHorizontal: 12,
     },
     text: {
       fontSize: 14,
@@ -42,32 +42,16 @@ const variantOfSize = {
   },
   medium: {
     iconButton: {
-      width: 40,
-      height: 40,
+      width: 32,
+      height: 32,
     },
     button: {
-      minHeight: 40,
-      paddingHorizontal: 16,
       paddingVertical: 8,
+      paddingHorizontal: 16,
     },
     text: {
       fontSize: 16,
       lineHeight: 24,
-    },
-  },
-  large: {
-    iconButton: {
-      width: 48,
-      height: 48,
-    },
-    button: {
-      minHeight: 48,
-      paddingHorizontal: 24,
-      paddingVertical: 8,
-    },
-    text: {
-      fontSize: 18,
-      lineHeight: 27,
     },
   },
 };
@@ -79,18 +63,18 @@ const variantOfStyles = (palette: TPalette) => ({
       borderRadius: 8,
     },
     text: {
-      color: palette.white,
+      color: palette.whiteColor,
     },
   },
   outline: {
     button: {
-      backgroundColor: 'transparent',
-      borderColor: palette.lightGray,
+      backgroundColor: palette.whiteColor,
+      borderColor: palette.lightGrayColor,
       borderRadius: 8,
       borderWidth: 2,
     },
     text: {
-      color: palette.dark,
+      color: palette.darkColor,
     },
   },
   rounded: {
@@ -99,20 +83,20 @@ const variantOfStyles = (palette: TPalette) => ({
       borderRadius: 24,
     },
     text: {
-      color: palette.white,
+      color: palette.whiteColor,
     },
   },
   plainText: {
     button: {},
     text: {
-      color: palette.dark,
+      color: palette.darkColor,
     },
   },
 });
 
 const defaultStyles = StyleSheet.create({
   root: {
-    flexDirection: 'row',
+    flexDirection: 'column',
   },
   button: {
     flexDirection: 'row',
@@ -145,7 +129,7 @@ export interface ButtonNextProps extends $Diff<TouchableOpacityProps, { style?: 
    */
   title?: string;
   /**
-   * If `true`, the buton is disabled.
+   * If `true`, the button is disabled.
    */
   disabled?: boolean;
   /**

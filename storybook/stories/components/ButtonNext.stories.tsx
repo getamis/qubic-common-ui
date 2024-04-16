@@ -32,8 +32,8 @@ ButtonWithIcon.args = {
 export const IconButton = Template.bind({});
 IconButton.storyName = 'Pure Icon';
 IconButton.args = {
-  icon: <Feather name="search" size={22} color="white" />,
-  size: 'large',
+  icon: <Feather name="search" size={24} color="white" />,
+  size: 'small',
   variant: 'rounded',
 };
 
