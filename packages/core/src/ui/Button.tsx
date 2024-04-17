@@ -28,7 +28,7 @@ const defaultStyles = StyleSheet.create({
   textDisabled: {},
 });
 
-export interface ButtonProps extends $Diff<TouchableOpacityProps, { style?: unknown; children?: unknown }> {
+export interface LegacyButtonProps extends $Diff<TouchableOpacityProps, { style?: unknown; children?: unknown }> {
   /**
    * The variant to use.
    */
@@ -47,8 +47,8 @@ export interface ButtonProps extends $Diff<TouchableOpacityProps, { style?: unkn
   disabled?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = React.memo<ButtonProps>(props => {
-  const { props: overridedProps, styles } = useOverride<ButtonProps>('Button', props);
+const Button: React.FC<LegacyButtonProps> = React.memo<LegacyButtonProps>(props => {
+  const { props: overridedProps, styles } = useOverride<LegacyButtonProps>('Button', props);
   const { icon, title, disabled, ...otherProps } = overridedProps;
 
   const finalStyle = useMemoStyles([defaultStyles.root, styles.root]);

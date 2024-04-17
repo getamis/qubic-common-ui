@@ -11,7 +11,7 @@ export { default as Alert } from './Alert';
 export * from './Alert';
 export { default as Badge } from './Badge';
 export * from './Badge';
-export { default as Button } from './Button';
+export { default as LegacyButton } from './Button';
 export * from './Button';
 export { default as Card } from './Card';
 export * from './Card';

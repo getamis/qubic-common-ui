@@ -30,10 +30,10 @@ const overrides: Overrides<unknown> = {
       }),
     },
   },
-  ButtonNext: {
+  Button: {
     default: {},
   },
-  Button: {
+  LegacyButton: {
     default: {
       styles: StyleSheet.create({
         root: {
