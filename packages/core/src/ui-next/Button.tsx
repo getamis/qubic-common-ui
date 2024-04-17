@@ -8,13 +8,13 @@ import type { TouchableOpacityProps, ViewStyle, TextStyle, ImageStyle } from 're
 const DEFAULT_VARIANT = 'default';
 const DEFAULT_SIZE = 'medium';
 
-export type TPalette = Record<string, string>;
+export type TButtonPalette = Record<string, string>;
 
-export type TVariant = 'default' | 'outline' | 'plainText' | 'rounded';
+export type TButtonVariant = 'default' | 'outline' | 'plainText' | 'rounded';
 
-export type TSize = 'small' | 'medium';
+export type TButtonSize = 'small' | 'medium';
 
-interface TSxProp {
+export interface TButtonSxProp {
   root?: ViewStyle;
   button?: ViewStyle;
   disabled?: ViewStyle;
@@ -56,7 +56,7 @@ const variantOfSize = {
   },
 };
 
-const variantOfStyles = (palette: TPalette) => ({
+const variantOfStyles = (palette: TButtonPalette) => ({
   default: {
     button: {
       backgroundColor: palette.primaryColor,
@@ -115,11 +115,11 @@ const defaultStyles = StyleSheet.create({
   textDisabled: {},
 });
 
-export interface ButtonNextProps extends $Diff<TouchableOpacityProps, { style?: unknown; children?: unknown }> {
+export interface ButtonProps extends $Diff<TouchableOpacityProps, { style?: unknown; children?: unknown }> {
   /**
    * The variant to use.
    */
-  variant?: TVariant;
+  variant?: TButtonVariant;
   /**
    * The icon beside the button title. Usually be placed on the left side.
    */
@@ -135,19 +135,19 @@ export interface ButtonNextProps extends $Diff<TouchableOpacityProps, { style?: 
   /**
    * The size of the button.
    */
-  size?: TSize;
+  size?: TButtonSize;
   /**
    * Override the style of the root element.
    */
-  sx?: TSxProp;
+  sx?: TButtonSxProp;
 }
 
-const Button: React.FC<ButtonNextProps> = React.memo<ButtonNextProps>(props => {
+const Button: React.FC<ButtonProps> = React.memo<ButtonProps>(props => {
   const { variant = DEFAULT_VARIANT, size = DEFAULT_SIZE, icon, title, disabled, sx, ...otherProps } = props;
-  const { styles: globalOverrideStyle } = useOverride<ButtonNextProps>('ButtonNext', { variant: 'default' }); // always use default variant to override for v1 override hook
+  const { styles: globalOverrideStyle } = useOverride<ButtonProps>('Button', { variant: 'default' }); // always use default variant to override for v1 override hook
   const { palette } = useTheme();
 
-  const variantWithPalette: TSxProp = useMemo(() => variantOfStyles(palette)?.[variant], [palette]);
+  const variantWithPalette: TButtonSxProp = useMemo(() => variantOfStyles(palette)?.[variant], [palette]);
 
   const styleVariant = useMemo(() => StyleSheet.create(variantWithPalette), [variant, palette]);
   const sizeVariant = useMemo(() => StyleSheet.create(variantOfSize?.[size]), [size]);

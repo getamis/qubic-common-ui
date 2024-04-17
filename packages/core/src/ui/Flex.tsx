@@ -105,6 +105,10 @@ export interface FlexProps {
    * The paddings of the flex box in the horizontal direction.
    */
   paddingHorizontal?: DimensionValue;
+  /**
+   * The gap between the inner items.
+   */
+  gap?: number | undefined;
 }
 
 const Flex = React.memo<FlexProps>(props => {
@@ -134,6 +138,7 @@ const Flex = React.memo<FlexProps>(props => {
     paddingLeft,
     paddingVertical,
     paddingHorizontal,
+    gap,
   } = props;
 
   const fillStyle = fill ? { flex: 1 } : {};
@@ -184,6 +189,7 @@ const Flex = React.memo<FlexProps>(props => {
       paddingLeft,
       paddingVertical,
       paddingHorizontal,
+      gap,
     }),
     [
       flexDirection,
@@ -202,6 +208,7 @@ const Flex = React.memo<FlexProps>(props => {
       paddingLeft,
       paddingVertical,
       paddingHorizontal,
+      gap,
     ],
   );
 
