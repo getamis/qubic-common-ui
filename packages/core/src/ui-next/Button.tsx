@@ -203,15 +203,15 @@ const Button: React.FC<ButtonProps> = React.memo<ButtonProps>(props => {
   ]);
 
   return (
-    <TouchableOpacity disabled={disabled} {...otherProps}>
-      <View style={elementRootStyle}>
+    <View style={elementRootStyle}>
+      <TouchableOpacity disabled={disabled} {...otherProps}>
         <View style={elementButtonStyle}>
           {icon && <View style={elementIconStyle}>{icon}</View>}
           {icon && title && <View style={{ width: 8 }} />}
           {!!title && <Text style={elementTextStyle}>{title}</Text>}
         </View>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </View>
   );
 });
 
