@@ -7,6 +7,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@expo/vector-icons": "12.0.5",
     "@qubic-js/react-native-cask-ui-core": "*",
     "@storybook/react": "^6.0.21",
     "@storybook/react-native": "^5.3.21",

@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { useOverride, useMemoStyles } from '@qubic-js/react-native-cask-ui-theme';
 
 import { TSearchBarRendererProps } from './types';
@@ -92,9 +92,9 @@ export default React.memo<TSearchBarRendererProps>(props => {
           {focus ? (
             // TODO: should handle back event
             // <Ionicons name="md-arrow-back" size={23} color={searchIconColor} />
-            <Ionicons name="md-search" size={23} color={searchIconColor} />
+            <Ionicons name="search" size={23} color={searchIconColor} />
           ) : (
-            <Ionicons name="md-search" size={23} color={searchIconColor} />
+            <Ionicons name="search" size={23} color={searchIconColor} />
           )}
         </View>
         <TextInput
@@ -113,7 +113,7 @@ export default React.memo<TSearchBarRendererProps>(props => {
         />
         {!!value && (
           <TouchableOpacity onPress={onClear}>
-            <Ionicons name="md-close" size={23} color={clearIconColor} />
+            <Ionicons name="close" size={23} color={clearIconColor} />
           </TouchableOpacity>
         )}
       </View>

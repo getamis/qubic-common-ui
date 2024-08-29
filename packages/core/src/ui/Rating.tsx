@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, DimensionValue } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { useOverride, useMemoStyles } from '@qubic-js/react-native-cask-ui-theme';
 
 const defaultStyles = StyleSheet.create({
@@ -56,7 +56,7 @@ export default React.memo<RatingProps>(props => {
   if (showLabel) {
     return (
       <View style={finalStyle}>
-        <Ionicons name="md-star" size={iconSize} color={activeColor} />
+        <Ionicons name="star" size={iconSize} color={activeColor} />
         {!!value && (
           <Text style={finalLabeStyle}>
             <Text style={finalValueStyle}>
@@ -78,10 +78,10 @@ export default React.memo<RatingProps>(props => {
     if (i === intValue) {
       starContent = (
         <View>
-          <Ionicons name="md-star" size={iconSize} color={inactiveColor} />
+          <Ionicons name="star" size={iconSize} color={inactiveColor} />
           <View style={StyleSheet.absoluteFill}>
             <Ionicons
-              name="md-star"
+              name="star"
               size={iconSize}
               color={activeColor}
               style={{ width: `${decimalValue * 100}%` as DimensionValue }}
@@ -91,7 +91,7 @@ export default React.memo<RatingProps>(props => {
       );
     } else {
       const color = i < intValue ? activeColor : inactiveColor;
-      starContent = <Ionicons name="md-star" size={iconSize} color={color} />;
+      starContent = <Ionicons name="star" size={iconSize} color={color} />;
     }
 
     stars.push(
