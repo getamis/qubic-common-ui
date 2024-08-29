@@ -4,7 +4,7 @@ import {
   HeaderButton as OriginalHeaderButton,
   HeaderItemProps,
 } from 'react-navigation-header-buttons';
-import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import EvilIcons from '@expo/vector-icons/EvilIcons';
 import { useOverride } from '@qubic-js/react-native-cask-ui-theme';
 
 export type HeaderButtonsItemProps = {

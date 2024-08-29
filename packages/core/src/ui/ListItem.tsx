@@ -12,7 +12,7 @@ import {
   GestureResponderEvent,
   KeyboardTypeOptions,
 } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { useOverride, useMemoStyles, TColor } from '@qubic-js/react-native-cask-ui-theme';
 
 import DisclosureIndicator from '../svg/DisclosureIndicator';
@@ -358,7 +358,7 @@ const AccessoryView = React.memo<ListItemProps>(props => {
     case 'checkmark':
       return (
         <Ionicons
-          name="md-checkmark"
+          name="checkmark"
           size={24}
           color={accessoryIconColor}
           style={{ width: 18, marginLeft: 16, alignSelf: 'center' }}

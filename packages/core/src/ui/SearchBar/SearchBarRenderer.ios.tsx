@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { useOverride, useMemoStyles } from '@qubic-js/react-native-cask-ui-theme';
 
 import { TSearchBarRendererProps } from './types';
@@ -75,7 +75,7 @@ export default React.memo<TSearchBarRendererProps>(props => {
   return (
     <View style={finalStyle}>
       <View style={finalInputContainerStyle}>
-        <Ionicons name="ios-search" size={19} color={searchIconColor} />
+        <Ionicons name="search" size={19} color={searchIconColor} />
         <TextInput
           style={finalInputStyle}
           placeholder={placeholder}
@@ -92,7 +92,7 @@ export default React.memo<TSearchBarRendererProps>(props => {
         />
         {!!value && (
           <TouchableOpacity onPress={onClear}>
-            <Ionicons name="ios-close-circle" size={19} color={clearIconColor} />
+            <Ionicons name="close-circle" size={19} color={clearIconColor} />
           </TouchableOpacity>
         )}
       </View>
