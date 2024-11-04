@@ -7,6 +7,11 @@ import type { TouchableOpacityProps, ViewStyle, TextStyle, ImageStyle } from 're
 
 const DEFAULT_VARIANT = 'default';
 const DEFAULT_SIZE = 'medium';
+const OUTLINE_BORDER_WIDTH = 2;
+const SMALL_BUTTON_PADDING_VERTICAL = 8;
+const SMALL_BUTTON_PADDING_HORIZONTAL = 12;
+const MEDIUM_BUTTON_PADDING_VERTICAL = 8;
+const MEDIUM_BUTTON_PADDING_HORIZONTAL = 16;
 
 export type TButtonPalette = Record<string, string>;
 
@@ -24,7 +29,7 @@ export interface TButtonSxProp {
   textDisabled?: TextStyle;
 }
 
-const variantOfSize = {
+const variantOfSize = (variant: TButtonVariant) => ({
   small: {
     iconButton: {
       width: 24,
@@ -32,8 +37,12 @@ const variantOfSize = {
     },
     button: {
       minHeight: 32,
-      paddingVertical: 8,
-      paddingHorizontal: 12,
+      paddingVertical:
+        variant === 'outline' ? SMALL_BUTTON_PADDING_VERTICAL - OUTLINE_BORDER_WIDTH : SMALL_BUTTON_PADDING_VERTICAL,
+      paddingHorizontal:
+        variant === 'outline'
+          ? SMALL_BUTTON_PADDING_HORIZONTAL - OUTLINE_BORDER_WIDTH
+          : SMALL_BUTTON_PADDING_HORIZONTAL,
     },
     text: {
       fontSize: 14,
@@ -46,15 +55,19 @@ const variantOfSize = {
       height: 32,
     },
     button: {
-      paddingVertical: 8,
-      paddingHorizontal: 16,
+      paddingVertical:
+        variant === 'outline' ? MEDIUM_BUTTON_PADDING_VERTICAL - OUTLINE_BORDER_WIDTH : MEDIUM_BUTTON_PADDING_VERTICAL,
+      paddingHorizontal:
+        variant === 'outline'
+          ? MEDIUM_BUTTON_PADDING_HORIZONTAL - OUTLINE_BORDER_WIDTH
+          : MEDIUM_BUTTON_PADDING_HORIZONTAL,
     },
     text: {
       fontSize: 16,
       lineHeight: 24,
     },
   },
-};
+});
 
 const variantOfStyles = (palette: TButtonPalette) => ({
   default: {
@@ -71,7 +84,7 @@ const variantOfStyles = (palette: TButtonPalette) => ({
       backgroundColor: palette.whiteColor,
       borderColor: palette.lightGrayColor,
       borderRadius: 8,
-      borderWidth: 2,
+      borderWidth: OUTLINE_BORDER_WIDTH,
     },
     text: {
       color: palette.darkColor,
@@ -150,7 +163,7 @@ const Button: React.FC<ButtonProps> = React.memo<ButtonProps>(props => {
   const variantWithPalette: TButtonSxProp = useMemo(() => variantOfStyles(palette)?.[variant], [palette]);
 
   const styleVariant = useMemo(() => StyleSheet.create(variantWithPalette), [variant, palette]);
-  const sizeVariant = useMemo(() => StyleSheet.create(variantOfSize?.[size]), [size]);
+  const sizeVariant = useMemo(() => StyleSheet.create(variantOfSize(variant)?.[size]), [size]);
   const isIconOnly = useMemo(() => !title && !!icon, [title, icon]);
 
   const elementRootStyle = StyleSheet.flatten([

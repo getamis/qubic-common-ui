@@ -236,7 +236,7 @@ const IconImageView = React.memo<ListItemProps>(props => {
   const finalIconStyle = useMemoStyles([defaultStyles.icon, styles.icon, disabled ? finalIconDisabledStyle : null]);
 
   return (
-    <View style={{ alignSelf: 'center', marginRight: 16 }}>
+    <View style={{ alignSelf: 'center', marginRight: 8 }}>
       {/* @ts-ignore */}
       {iconView || <Image source={icon} style={finalIconStyle} />}
     </View>

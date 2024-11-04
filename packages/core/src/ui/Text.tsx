@@ -4,7 +4,9 @@ import { useOverride } from '@qubic-js/react-native-cask-ui-theme';
 import { $Diff } from 'utility-types';
 
 const defaultStyles = StyleSheet.create({
-  text: {},
+  text: {
+    flexShrink: 1,
+  },
 });
 
 export interface TextProps extends $Diff<OriginTextProps, { style?: unknown }> {
