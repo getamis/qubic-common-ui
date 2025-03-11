@@ -33,7 +33,7 @@ export default React.memo<LoadingSpinnerRendererProps>(props => {
   const finalTextStyle = useMemoStyles([defaultStyles.text, styles.text]);
 
   return (
-    <View style={StyleSheet.absoluteFillObject} pointerEvents={hidden ? 'none' : 'auto'}>
+    <View style={[StyleSheet.absoluteFillObject, { pointerEvents: hidden ? 'none' : 'auto' }]}>
       {!hidden && (
         <View style={finalOverlayStyle}>
           <View style={finalToastStyle}>

@@ -9,6 +9,7 @@ const fixedStyles = StyleSheet.create({
     left: 0,
     right: 0,
     opacity: 0,
+    pointerEvents: 'none',
   },
   footer: {
     flexDirection: 'row',
@@ -57,18 +58,10 @@ export default React.memo<ReadMoreProps>(props => {
 
   return (
     <View>
-      <View
-        style={displayFullText ? fixedStyles.hidden : undefined}
-        pointerEvents={displayFullText ? 'none' : undefined}
-        onLayout={handleCollapsedTextLayout}
-      >
+      <View style={displayFullText ? fixedStyles.hidden : undefined} onLayout={handleCollapsedTextLayout}>
         <Text numberOfLines={numberOfLines}>{children}</Text>
       </View>
-      <View
-        style={!displayFullText ? fixedStyles.hidden : undefined}
-        pointerEvents={!displayFullText ? 'none' : undefined}
-        onLayout={handleFullTextLayout}
-      >
+      <View style={!displayFullText ? fixedStyles.hidden : undefined} onLayout={handleFullTextLayout}>
         <Text>{children}</Text>
       </View>
       {tooManyText && (
