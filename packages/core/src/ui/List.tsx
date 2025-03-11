@@ -10,7 +10,6 @@ import {
   ListRenderItem,
   VirtualizedListWithoutRenderItemProps,
 } from 'react-native';
-import DraggableFlatList, { OnMoveEndInfo } from 'react-native-draggable-flatlist';
 import { useOverride, TStyle } from '@qubic-js/react-native-cask-ui-theme';
 
 const defaultStyles = StyleSheet.create({
@@ -65,23 +64,14 @@ export type SectionData<ItemT> =
 export interface ListProps<ItemT> extends VirtualizedListWithoutRenderItemProps<ItemT> {
   variant?: string;
   sectionType: 'plain' | 'grouped';
-  draggable?: boolean;
   renderSectionHeader?: (info: { section: SectionListData<ItemT> }, sectionHeader: ReactElement) => ReactElement | null;
   renderSectionFooter?: (info: { section: SectionListData<ItemT> }, sectionFooter: ReactElement) => ReactElement | null;
   renderItem: SectionListRenderItem<ItemT> | ListRenderItem<ItemT>;
   keyExtractor: (item: any, index: number) => string;
-  extraData?: unknown;
-  initialScrollIndex?: number;
   ListEmptyComponent?: React.ComponentType<any> | React.ReactElement | null;
   sections?: SectionData<ItemT>[] | null;
   data?: ItemT[] | null;
   contentContainerStyle?: TStyle;
-  scrollEnabled?: boolean;
-  // draggable
-  scrollPercent?: number;
-  onMoveEnd?: (info: OnMoveEndInfo<unknown>) => void;
-  onMoveBegin?: (index: number) => void;
-  stickySectionHeadersEnabled?: boolean;
 }
 
 function ListBase<ItemT>(props: ListProps<ItemT> & { ref?: React.Ref<FlatList> }, ref: any): JSX.Element | null {
@@ -89,11 +79,11 @@ function ListBase<ItemT>(props: ListProps<ItemT> & { ref?: React.Ref<FlatList> }
   const {
     contentContainerStyle,
     sectionType = 'plain',
-    draggable,
     sections,
     data,
     renderSectionHeader: originRenderSectionHeader,
     renderSectionFooter: originRenderSectionFooter,
+    renderItem,
     ...otherProps
   } = overridedProps;
 
@@ -205,6 +195,7 @@ function ListBase<ItemT>(props: ListProps<ItemT> & { ref?: React.Ref<FlatList> }
             : {},
           contentContainerStyle,
         ]}
+        renderItem={renderItem as SectionListRenderItem<ItemT>}
         {...otherProps}
         ref={ref}
       />
@@ -214,14 +205,13 @@ function ListBase<ItemT>(props: ListProps<ItemT> & { ref?: React.Ref<FlatList> }
   if (data) {
     // remove empty data
     const newData = data.filter(d => !!d);
-    const FlatListRenderer = draggable ? DraggableFlatList : FlatList;
 
     return (
-      /* @ts-ignore */
-      <FlatListRenderer
+      <FlatList
         data={newData}
         ItemSeparatorComponent={renderItemSeparator}
         contentContainerStyle={contentContainerStyle}
+        renderItem={renderItem as ListRenderItem<ItemT>}
         {...otherProps}
         ref={ref}
       />

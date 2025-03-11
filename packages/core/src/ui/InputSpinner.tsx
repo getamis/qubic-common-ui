@@ -22,7 +22,7 @@ const defaultStyles = StyleSheet.create({
   },
   text: {
     fontSize: 15,
-    fontVariant: ['tabular-nums'],
+    fontVariant: 'tabular-nums',
     lineHeight: 20,
     fontWeight: 'bold',
     marginHorizontal: 12,

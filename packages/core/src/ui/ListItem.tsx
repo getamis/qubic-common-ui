@@ -30,6 +30,7 @@ const defaultStyles = StyleSheet.create({
     paddingRight: 16,
     minHeight: 44,
     backgroundColor: 'white',
+    pointerEvents: 'box-only',
   },
   content: {
     flex: 1,
@@ -188,11 +189,7 @@ const ListItem = React.memo<ListItemProps>(props => {
         {text}
       </Text>
     );
-    touchableView = (
-      <View style={finalStyleForButton} pointerEvents="box-only">
-        {innerView}
-      </View>
-    );
+    touchableView = <View style={finalStyleForButton}>{innerView}</View>;
   } else {
     // icon
     const imageView = <IconImageView {...props} />;
@@ -210,7 +207,7 @@ const ListItem = React.memo<ListItemProps>(props => {
       </View>
     );
     touchableView = (
-      <View style={finalStyle} pointerEvents={allowsInnerPressable ? 'auto' : 'box-only'}>
+      <View style={[finalStyle, { pointerEvents: allowsInnerPressable ? 'auto' : 'box-only' }]}>
         {innerView}
         <AccessoryView {...props} />
       </View>

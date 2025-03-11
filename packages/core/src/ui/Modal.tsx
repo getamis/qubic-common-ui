@@ -7,6 +7,7 @@ const defaultStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     opacity: 0.7,
+    pointerEvents: 'box-none',
   },
   modal: {
     width: '90%',
@@ -70,7 +71,7 @@ export default React.memo<TModalProps>(props => {
     <Modal visible={visible} animationType={animationType} transparent={transparent} onRequestClose={onDismiss}>
       <TouchableWithoutFeedback onPress={onDismiss}>
         <View style={fixedStyles.fill}>
-          <View style={finalBackdropStyle} pointerEvents="box-none" />
+          <View style={finalBackdropStyle} />
           <View style={fixedStyles.modalWrapper}>
             <TouchableWithoutFeedback>
               <View style={finalModalStyle}>
