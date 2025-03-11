@@ -6,6 +6,7 @@ import { $Diff } from 'utility-types';
 const defaultStyles = StyleSheet.create({
   text: {
     flexShrink: 1,
+    minWidth: 0,
   },
 });
 
