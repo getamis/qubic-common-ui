@@ -30,7 +30,6 @@ const defaultStyles = StyleSheet.create({
     paddingRight: 16,
     minHeight: 44,
     backgroundColor: 'white',
-    pointerEvents: 'box-only',
   },
   content: {
     flex: 1,
@@ -178,7 +177,7 @@ const ListItem = React.memo<ListItemProps>(props => {
     disabled ? finalButtonDisabledStyle : null,
   ]);
 
-  const finalStyleForButton = useMemoStyles([finalStyle, fixedStyle.noPadding]);
+  const finalStyleForButton = useMemoStyles([finalStyle, fixedStyle.noPadding, { pointerEvents: 'box-only' }]);
 
   let innerView = null;
   let touchableView = null;
