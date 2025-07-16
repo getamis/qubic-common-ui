@@ -157,7 +157,7 @@ export interface ButtonProps extends $Diff<TouchableOpacityProps, { style?: unkn
 
 const Button: React.FC<ButtonProps> = React.memo<ButtonProps>(props => {
   const { variant = DEFAULT_VARIANT, size = DEFAULT_SIZE, icon, title, disabled, sx, ...otherProps } = props;
-  const { styles: globalOverrideStyle } = useOverride<ButtonProps>('Button', { variant: 'default' }); // always use default variant to override for v1 override hook
+  const { styles: globalOverrideStyle } = useOverride<ButtonProps>('Button', { variant });
   const { palette } = useTheme();
 
   const variantWithPalette: TButtonSxProp = useMemo(() => variantOfStyles(palette)?.[variant], [palette]);
