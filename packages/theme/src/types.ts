@@ -24,28 +24,18 @@ export type TOverrideConfig<TProps> = {
   };
 };
 
-export type Overrides<TProps> = {
+export type Overrides<TProps = unknown> = {
   [componentName: string]: {
     [variantName: string]: TOverrideConfig<TProps>;
   };
 };
 
-type MergeBy<T, K> = Omit<T, keyof K> & K;
+export type ThemeName = 'light' | 'dark';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface CustomPalette {}
-
-type PaletteOptions = MergeBy<
-  {
-    palette: TPalette<string>;
-  },
-  CustomPalette
->;
-
-export interface Theme {
-  name: string;
-  palette: PaletteOptions['palette'];
-  overrides: Overrides<unknown>;
+export interface Theme<P = TPalette> {
+  name: ThemeName;
+  palette: P;
+  overrides: Overrides;
   extra?: {
     [key: string]: unknown;
   };

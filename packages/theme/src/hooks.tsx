@@ -5,7 +5,7 @@ import { shallowEqualObjects } from 'shallow-equal';
 import { TStyle, TOverride, Theme } from './types';
 
 const defaultThemeResult: Theme = {
-  name: '',
+  name: 'light',
   palette: {},
   overrides: {},
   extra: {},
