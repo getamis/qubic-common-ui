@@ -31,7 +31,53 @@ const overrides: Overrides<unknown> = {
     },
   },
   Button: {
-    default: {},
+    default: {
+      styles: {
+        button: {
+          backgroundColor: palette.primaryColor,
+          borderRadius: 8,
+        },
+        text: {
+          color: palette.white,
+          fontWeight: '500',
+        },
+      },
+    },
+    outline: {
+      styles: {
+        button: {
+          backgroundColor: palette.white,
+          borderColor: palette.lightGray,
+          borderRadius: 8,
+          borderWidth: 2,
+        },
+        text: {
+          color: palette.dark,
+          fontWeight: '500',
+        },
+      },
+    },
+    rounded: {
+      styles: {
+        button: {
+          backgroundColor: palette.primaryColor,
+          borderRadius: 24,
+        },
+        text: {
+          color: palette.white,
+          fontWeight: '500',
+        },
+      },
+    },
+    plainText: {
+      styles: {
+        button: {},
+        text: {
+          color: palette.dark,
+          fontWeight: '500',
+        },
+      },
+    },
   },
   LegacyButton: {
     default: {

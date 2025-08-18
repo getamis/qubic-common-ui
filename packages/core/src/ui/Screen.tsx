@@ -54,7 +54,6 @@ const SafeAreaView = (props: SafeAreaViewProps) => {
 
 export interface ScreenProps {
   variant?: string;
-  padding?: boolean;
   topSafe?: boolean;
   bottomSafe?: boolean;
   statusBar?: {

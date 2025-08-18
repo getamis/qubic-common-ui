@@ -1,6 +1,6 @@
 import React, { ReactNode, useMemo } from 'react';
 import { StyleSheet, TouchableOpacity, View, Text } from 'react-native';
-import { useOverride, useTheme } from '@qubic-js/react-native-cask-ui-theme';
+import { useOverride } from '@qubic-js/react-native-cask-ui-theme';
 import { $Diff } from 'utility-types';
 
 import type { TouchableOpacityProps, ViewStyle, TextStyle, ImageStyle } from 'react-native';
@@ -69,44 +69,6 @@ const variantOfSize = (variant: TButtonVariant) => ({
   },
 });
 
-const variantOfStyles = (palette: TButtonPalette) => ({
-  default: {
-    button: {
-      backgroundColor: palette.primaryColor,
-      borderRadius: 8,
-    },
-    text: {
-      color: palette.whiteColor,
-    },
-  },
-  outline: {
-    button: {
-      backgroundColor: palette.whiteColor,
-      borderColor: palette.lightGrayColor,
-      borderRadius: 8,
-      borderWidth: OUTLINE_BORDER_WIDTH,
-    },
-    text: {
-      color: palette.darkColor,
-    },
-  },
-  rounded: {
-    button: {
-      backgroundColor: palette.primaryColor,
-      borderRadius: 24,
-    },
-    text: {
-      color: palette.whiteColor,
-    },
-  },
-  plainText: {
-    button: {},
-    text: {
-      color: palette.darkColor,
-    },
-  },
-});
-
 const defaultStyles = StyleSheet.create({
   root: {
     flexDirection: 'column',
@@ -158,31 +120,20 @@ export interface ButtonProps extends $Diff<TouchableOpacityProps, { style?: unkn
 const Button: React.FC<ButtonProps> = React.memo<ButtonProps>(props => {
   const { variant = DEFAULT_VARIANT, size = DEFAULT_SIZE, icon, title, disabled, sx, ...otherProps } = props;
   const { styles: globalOverrideStyle } = useOverride<ButtonProps>('Button', { variant });
-  const { palette } = useTheme();
 
-  const variantWithPalette: TButtonSxProp = useMemo(() => variantOfStyles(palette)?.[variant], [palette]);
-
-  const styleVariant = useMemo(() => StyleSheet.create(variantWithPalette), [variant, palette]);
-  const sizeVariant = useMemo(() => StyleSheet.create(variantOfSize(variant)?.[size]), [size]);
+  const sizeVariant = useMemo(() => StyleSheet.create(variantOfSize(variant)?.[size]), [size, variant]);
   const isIconOnly = useMemo(() => !title && !!icon, [title, icon]);
 
-  const elementRootStyle = StyleSheet.flatten([
-    defaultStyles.root,
-    styleVariant.root,
-    globalOverrideStyle.root,
-    sx?.root || {},
-  ]);
+  const elementRootStyle = StyleSheet.flatten([defaultStyles.root, globalOverrideStyle.root, sx?.root || {}]);
 
   const elementButtonDisabledStyle = StyleSheet.flatten([
     defaultStyles.buttonDisabled,
-    styleVariant.disabled,
-    globalOverrideStyle.disable,
+    globalOverrideStyle.disabled,
     sx?.disabled,
   ]);
 
   const elementButtonStyle = StyleSheet.flatten([
     defaultStyles.button,
-    styleVariant.button,
     isIconOnly ? sizeVariant.iconButton : sizeVariant.button,
     globalOverrideStyle.button,
     sx?.button,
@@ -191,24 +142,21 @@ const Button: React.FC<ButtonProps> = React.memo<ButtonProps>(props => {
 
   const elementIconDisabledStyle = StyleSheet.flatten([
     defaultStyles.iconDisabled,
-    styleVariant.iconDisabled,
     globalOverrideStyle.iconDisabled,
     sx?.iconDisabled,
   ]);
 
   const elementIconStyle = StyleSheet.flatten([
     defaultStyles.icon,
-    styleVariant.icon,
     globalOverrideStyle.icon,
     sx?.icon,
     disabled ? elementIconDisabledStyle : null,
   ]);
 
-  const elementTextDisabledStyle = StyleSheet.flatten([defaultStyles.textDisabled, styleVariant.textDisabled]);
+  const elementTextDisabledStyle = StyleSheet.flatten([defaultStyles.textDisabled, globalOverrideStyle.textDisabled]);
 
   const elementTextStyle = StyleSheet.flatten([
     defaultStyles.text,
-    styleVariant.text,
     sizeVariant.text,
     globalOverrideStyle.text,
     sx?.text,

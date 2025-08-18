@@ -42,7 +42,6 @@ const defaultStyles = StyleSheet.create({
   },
   itemSeparator: {
     height: StyleSheet.hairlineWidth,
-    marginLeft: 16,
   },
   itemSeparatorInset: {
     backgroundColor: 'white',
@@ -124,7 +123,7 @@ function ListBase<ItemT>(props: ListProps<ItemT> & { ref?: React.Ref<FlatList> }
 
       return originRenderSectionHeader ? originRenderSectionHeader({ section }, sectionHeader) : sectionHeader;
     },
-    [originRenderSectionHeader],
+    [originRenderSectionHeader, styles, sectionType],
   );
 
   const renderSectionFooter = useCallback(
@@ -146,14 +145,14 @@ function ListBase<ItemT>(props: ListProps<ItemT> & { ref?: React.Ref<FlatList> }
 
       return originRenderSectionFooter ? originRenderSectionFooter({ section }, sectionFooter) : sectionFooter;
     },
-    [originRenderSectionFooter],
+    [originRenderSectionFooter, styles, sectionType],
   );
 
   const renderSectionSeparator = useCallback(() => {
     const finalSectionSeparatorStyle = [defaultStyles.sectionSeparator, styles.sectionSeparator];
 
     return <View style={finalSectionSeparatorStyle} />;
-  }, []);
+  }, [styles]);
 
   const renderItemSeparator = useCallback(() => {
     const finalItemSeparatorStyle = [defaultStyles.itemSeparator, styles.itemSeparator];
@@ -164,7 +163,7 @@ function ListBase<ItemT>(props: ListProps<ItemT> & { ref?: React.Ref<FlatList> }
         <View style={finalItemSeparatorStyle} />
       </View>
     );
-  }, []);
+  }, [styles]);
 
   // render
   if (sections) {

@@ -213,7 +213,7 @@ const Image: React.FC<ImageProps> = React.memo<ImageProps>(props => {
       };
     }
     return undefined;
-  }, [uri, retry]);
+  }, [uri, retry, source]);
 
   const newSource = uri ? newUriSource : source;
 
