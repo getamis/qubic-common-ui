@@ -45,9 +45,12 @@ export type HeaderButtonsProps = {
 const HeaderButtons = React.memo<HeaderButtonsProps>(props => {
   const { variant, children } = props;
 
-  const renderHeaderButton = useCallback((itemProps: HeaderButtonsItemProps) => {
-    return <HeaderButtonsItem variant={variant} {...itemProps} />;
-  }, []);
+  const renderHeaderButton = useCallback(
+    (itemProps: HeaderButtonsItemProps) => {
+      return <HeaderButtonsItem variant={variant} {...itemProps} />;
+    },
+    [variant],
+  );
 
   return <OriginalHeaderButtons HeaderButtonComponent={renderHeaderButton}>{children}</OriginalHeaderButtons>;
 });

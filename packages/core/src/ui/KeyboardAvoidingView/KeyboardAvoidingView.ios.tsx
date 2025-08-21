@@ -15,7 +15,7 @@ export default React.memo<KeyboardAvoidingViewProps>(props => {
       setKeyboardHeight(e.endCoordinates.height - insets.bottom);
     });
     return () => keyboardShowListener.remove();
-  }, []);
+  }, [insets.bottom]);
 
   useEffect(() => {
     const keyboardHideListener = Keyboard.addListener('keyboardWillHide', () => {

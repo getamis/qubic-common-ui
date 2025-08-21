@@ -65,7 +65,7 @@ export const useOverride = <TProps extends { [key: string]: any }>(
   const overridedProps = useMemo(() => {
     if (variant === 'default') return defaultOverridedProps;
     return { ...defaultOverridedProps, ...variantOverridedProps };
-  }, [defaultOverridedProps, variantOverridedProps]);
+  }, [variant, defaultOverridedProps, variantOverridedProps]);
 
   const overridedStyles = useMemo(() => {
     if (variant === 'default') return defaultOverridedStyles;
@@ -78,7 +78,7 @@ export const useOverride = <TProps extends { [key: string]: any }>(
       result[key] = [defaultOverridedStyles?.[key], variantOverridedStyles?.[key]];
       return result;
     }, {});
-  }, [defaultOverridedStyles, variantOverridedStyles]);
+  }, [variant, defaultOverridedStyles, variantOverridedStyles]);
 
   const finalProps = useMemo(() => ({ ...overridedProps, ...otherProps }), [overridedProps, otherProps]);
   const finalStyles = useMemo(() => overridedStyles || {}, [overridedStyles]);
@@ -90,4 +90,4 @@ export const useOverride = <TProps extends { [key: string]: any }>(
   };
 };
 
-export const useMemoStyles = (styles: TStyle[]): TStyle => useMemo<TStyle>(() => styles, styles);
+export const useMemoStyles = (styles: TStyle[]): TStyle => useMemo<TStyle>(() => styles, [styles]);

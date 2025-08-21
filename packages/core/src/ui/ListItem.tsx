@@ -29,7 +29,6 @@ const defaultStyles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
     minHeight: 44,
-    backgroundColor: 'white',
   },
   content: {
     flex: 1,
@@ -226,10 +225,10 @@ const IconImageView = React.memo<ListItemProps>(props => {
   const { props: overridedProps, styles } = useOverride('ListItem', props);
   const { disabled, icon, iconView } = overridedProps;
 
-  if (!icon && !iconView) return null;
-
   const finalIconDisabledStyle = useMemoStyles([defaultStyles.iconDisabled, styles.iconDisabled]);
   const finalIconStyle = useMemoStyles([defaultStyles.icon, styles.icon, disabled ? finalIconDisabledStyle : null]);
+
+  if (!icon && !iconView) return null;
 
   return (
     <View style={{ alignSelf: 'center', marginRight: 8 }}>
@@ -345,7 +344,7 @@ const AccessoryView = React.memo<ListItemProps>(props => {
       if (Platform.OS !== 'android') {
         return (
           <View style={{ alignSelf: 'center', marginLeft: 16 }}>
-            <DisclosureIndicator />
+            <DisclosureIndicator color={accessoryIconColor} />
           </View>
         );
       }

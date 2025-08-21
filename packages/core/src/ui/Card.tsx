@@ -16,7 +16,6 @@ const defaultStyles = StyleSheet.create({
     overflow: 'visible',
   },
   card: {
-    backgroundColor: 'white',
     borderRadius: 4,
     overflow: 'hidden',
   },
