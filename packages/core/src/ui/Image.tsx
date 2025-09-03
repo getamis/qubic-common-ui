@@ -12,8 +12,7 @@ import {
 import ContentLoader from 'react-content-loader';
 import { Path } from 'react-native-svg';
 // import * as Progress from 'react-native-progress';
-import { useOverride, useMemoStyles, TColor } from '@qubic-js/react-native-cask-ui-theme';
-import { $Diff } from 'utility-types';
+import { useOverride, useMemoStyles, TColor, ComponentVariant } from '@qubic-js/react-native-cask-ui-theme';
 
 const defaultStyles = StyleSheet.create({
   root: {
@@ -41,12 +40,12 @@ const fixedStyles = StyleSheet.create({
   },
 });
 
-export interface ImageProps extends $Diff<OriginImageProps, { source: ImageSourcePropType }> {
+export interface ImageProps extends Omit<OriginImageProps, 'source'> {
   ImageRenderer?: ReactNode;
   /**
    * The variant to use.
    */
-  variant?: string;
+  variant?: ComponentVariant<'Image'>;
   /**
    * The image element or remote url.
    */

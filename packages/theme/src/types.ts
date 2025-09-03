@@ -24,10 +24,21 @@ export type TOverrideConfig<TProps> = {
   };
 };
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface ComponentVariants {
+  // Default empty, allows users to extend via declare module
+}
+
 export type Overrides<TProps = unknown> = {
   [componentName: string]: {
     [variantName: string]: TOverrideConfig<TProps>;
   };
+};
+
+export type ComponentVariant<T extends string> = T extends keyof ComponentVariants ? ComponentVariants[T] : string;
+
+export type ExtractVariantKeys<T> = {
+  [K in keyof T]: Exclude<keyof T[K], 'default'>;
 };
 
 export type ThemeName = 'light' | 'dark';

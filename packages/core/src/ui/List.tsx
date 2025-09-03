@@ -10,7 +10,7 @@ import {
   ListRenderItem,
   VirtualizedListWithoutRenderItemProps,
 } from 'react-native';
-import { useOverride, TStyle } from '@qubic-js/react-native-cask-ui-theme';
+import { useOverride, TStyle, ComponentVariant } from '@qubic-js/react-native-cask-ui-theme';
 
 const defaultStyles = StyleSheet.create({
   defaultHeaderPlaceholder: {
@@ -61,7 +61,7 @@ export type SectionData<ItemT> =
   | null;
 
 export interface ListProps<ItemT> extends VirtualizedListWithoutRenderItemProps<ItemT> {
-  variant?: string;
+  variant?: ComponentVariant<'List'>;
   sectionType: 'plain' | 'grouped';
   renderSectionHeader?: (info: { section: SectionListData<ItemT> }, sectionHeader: ReactElement) => ReactElement | null;
   renderSectionFooter?: (info: { section: SectionListData<ItemT> }, sectionFooter: ReactElement) => ReactElement | null;
@@ -73,7 +73,10 @@ export interface ListProps<ItemT> extends VirtualizedListWithoutRenderItemProps<
   contentContainerStyle?: TStyle;
 }
 
-function ListBase<ItemT>(props: ListProps<ItemT> & { ref?: React.Ref<FlatList> }, ref: any): JSX.Element | null {
+// List 組件的 ref 可以是 FlatList 或 SectionList，取決於是否使用 sections
+export type ListRef<ItemT = unknown> = FlatList<ItemT> | SectionList<ItemT>;
+
+function ListBase<ItemT>(props: ListProps<ItemT>, ref: React.Ref<ListRef<ItemT>>): JSX.Element | null {
   const { props: overridedProps, styles } = useOverride<ListProps<ItemT>>('List', props);
   const {
     contentContainerStyle,
@@ -196,7 +199,7 @@ function ListBase<ItemT>(props: ListProps<ItemT> & { ref?: React.Ref<FlatList> }
         ]}
         renderItem={renderItem as SectionListRenderItem<ItemT>}
         {...otherProps}
-        ref={ref}
+        ref={ref as React.Ref<SectionList<ItemT>>}
       />
     );
   }
@@ -212,7 +215,7 @@ function ListBase<ItemT>(props: ListProps<ItemT> & { ref?: React.Ref<FlatList> }
         contentContainerStyle={contentContainerStyle}
         renderItem={renderItem as ListRenderItem<ItemT>}
         {...otherProps}
-        ref={ref}
+        ref={ref as React.Ref<FlatList<ItemT>>}
       />
     );
   }
@@ -220,6 +223,8 @@ function ListBase<ItemT>(props: ListProps<ItemT> & { ref?: React.Ref<FlatList> }
   return null;
 }
 
-const List = React.memo(React.forwardRef(ListBase)) as typeof ListBase;
+const List = React.memo(React.forwardRef(ListBase)) as <ItemT>(
+  props: ListProps<ItemT> & { ref?: React.Ref<ListRef<ItemT>> },
+) => JSX.Element | null;
 
 export default List;

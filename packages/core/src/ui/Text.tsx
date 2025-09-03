@@ -1,7 +1,6 @@
 import React, { useMemo, ReactNode } from 'react';
 import { StyleSheet, Text as OriginText, TextProps as OriginTextProps } from 'react-native';
-import { useOverride } from '@qubic-js/react-native-cask-ui-theme';
-import { $Diff } from 'utility-types';
+import { useOverride, ComponentVariant } from '@qubic-js/react-native-cask-ui-theme';
 
 const defaultStyles = StyleSheet.create({
   text: {
@@ -10,11 +9,11 @@ const defaultStyles = StyleSheet.create({
   },
 });
 
-export interface TextProps extends $Diff<OriginTextProps, { style?: unknown }> {
+export interface TextProps extends Omit<OriginTextProps, 'style'> {
   /**
    * The variant to use.
    */
-  variant?: string;
+  variant?: ComponentVariant<'Text'>;
   /**
    * The text alignment.
    */
@@ -23,13 +22,9 @@ export interface TextProps extends $Diff<OriginTextProps, { style?: unknown }> {
    * The text to display or nested Text components.
    */
   children: ReactNode;
-  /**
-   * The ref to text.
-   */
-  ref?: React.Ref<OriginText> | undefined;
 }
 
-const Text = React.forwardRef<OriginText, TextProps>((props, ref) => {
+const Text = React.forwardRef<React.ElementRef<typeof OriginText>, TextProps>((props, ref) => {
   const { props: overridedProps, styles } = useOverride('Text', props);
   const { textAlign, children, ...otherProps } = overridedProps;
 

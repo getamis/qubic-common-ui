@@ -1,7 +1,7 @@
 import React, { useMemo, useCallback } from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import EvilIcons from '@expo/vector-icons/EvilIcons';
-import { useOverride, useMemoStyles } from '@qubic-js/react-native-cask-ui-theme';
+import { useOverride, useMemoStyles, ComponentVariant } from '@qubic-js/react-native-cask-ui-theme';
 
 const defaultStyles = StyleSheet.create({
   root: {
@@ -36,7 +36,7 @@ type Option = {
 
 export type TInputSpinnerProps = {
   // eslint-disable-next-line react/no-unused-prop-types
-  variant?: string;
+  variant?: ComponentVariant<'InputSpinner'>;
   options: Array<Option>;
   value: any;
   onValueChange: (value: any) => void;

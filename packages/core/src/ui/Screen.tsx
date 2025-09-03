@@ -1,7 +1,7 @@
 import React, { ReactNode, useMemo } from 'react';
 import { StyleSheet, View, StatusBar, StatusBarStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useOverride, useMemoStyles, TStyle } from '@qubic-js/react-native-cask-ui-theme';
+import { useOverride, useMemoStyles, TStyle, ComponentVariant } from '@qubic-js/react-native-cask-ui-theme';
 
 const defaultStyles = StyleSheet.create({
   root: {
@@ -53,7 +53,7 @@ const SafeAreaView = (props: SafeAreaViewProps) => {
 };
 
 export interface ScreenProps {
-  variant?: string;
+  variant?: ComponentVariant<'Screen'>;
   topSafe?: boolean;
   bottomSafe?: boolean;
   statusBar?: {

@@ -1,4 +1,3 @@
-import { $Diff } from 'utility-types';
 import React from 'react';
 import {
   StyleSheet,
@@ -7,7 +6,7 @@ import {
   TextInput as OriginTextInput,
   TextInputProps as OriginTextInputProps,
 } from 'react-native';
-import { useOverride, useMemoStyles, TColor } from '@qubic-js/react-native-cask-ui-theme';
+import { useOverride, useMemoStyles, TColor, ComponentVariant } from '@qubic-js/react-native-cask-ui-theme';
 
 const defaultStyles = StyleSheet.create({
   root: {
@@ -30,12 +29,11 @@ const defaultStyles = StyleSheet.create({
   textInputDisabled: {},
 });
 
-export interface TextInputProps extends $Diff<OriginTextInputProps, { style?: unknown; children?: unknown }> {
-  ref?: any;
+export interface TextInputProps extends Omit<OriginTextInputProps, 'style' | 'children'> {
   /**
    * The variant to use.
    */
-  variant?: string;
+  variant?: ComponentVariant<'TextInput'>;
   /**
    * The label above the text input control.
    */
@@ -58,7 +56,7 @@ export interface TextInputProps extends $Diff<OriginTextInputProps, { style?: un
   editable?: boolean;
 }
 
-const TextInput = React.forwardRef<OriginTextInput, TextInputProps>((props, ref) => {
+const TextInput = React.forwardRef<React.ElementRef<typeof OriginTextInput>, TextInputProps>((props, ref) => {
   const { props: overridedProps, styles } = useOverride('TextInput', props);
   const { label, editable, ...otherProps } = overridedProps;
 

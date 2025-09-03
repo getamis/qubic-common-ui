@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
 import { StyleSheet, TouchableOpacity, View, Text, TouchableOpacityProps } from 'react-native';
-import { useOverride, useMemoStyles } from '@qubic-js/react-native-cask-ui-theme';
-import { $Diff } from 'utility-types';
+import { useOverride, useMemoStyles, ComponentVariant } from '@qubic-js/react-native-cask-ui-theme';
 
 const defaultStyles = StyleSheet.create({
   root: {
@@ -28,11 +27,11 @@ const defaultStyles = StyleSheet.create({
   textDisabled: {},
 });
 
-export interface LegacyButtonProps extends $Diff<TouchableOpacityProps, { style?: unknown; children?: unknown }> {
+export interface LegacyButtonProps extends Omit<TouchableOpacityProps, 'style' | 'children'> {
   /**
    * The variant to use.
    */
-  variant?: string;
+  variant?: ComponentVariant<'Button'>;
   /**
    * The icon beside the button title. Usually be placed on the left side.
    */

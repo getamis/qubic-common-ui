@@ -1,6 +1,6 @@
 import React, { ReactNode, useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { useOverride, useMemoStyles } from '@qubic-js/react-native-cask-ui-theme';
+import { useOverride, useMemoStyles, ComponentVariant } from '@qubic-js/react-native-cask-ui-theme';
 
 const defaultStyles = StyleSheet.create({
   root: {
@@ -12,7 +12,7 @@ const defaultStyles = StyleSheet.create({
 });
 
 export type ToolbarProps = {
-  variant?: string;
+  variant?: ComponentVariant<'Toolbar'>;
   location?: 'top' | 'bottom';
   children: ReactNode;
 };

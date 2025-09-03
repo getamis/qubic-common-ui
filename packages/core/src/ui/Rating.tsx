@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, DimensionValue } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { useOverride, useMemoStyles } from '@qubic-js/react-native-cask-ui-theme';
+import { useOverride, useMemoStyles, ComponentVariant } from '@qubic-js/react-native-cask-ui-theme';
 
 const defaultStyles = StyleSheet.create({
   root: {
@@ -22,7 +22,7 @@ const defaultStyles = StyleSheet.create({
 });
 
 export type RatingProps = {
-  variant?: string;
+  variant?: ComponentVariant<'Rating'>;
   value: number;
   maxValue?: number;
   iconSize?: number;

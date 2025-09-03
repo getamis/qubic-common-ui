@@ -41,3 +41,67 @@ $ yarn storybook
 ### Important
 
 **DON'T** use `defaultProps` for any UI Component. It will break the `overrides` effect.
+
+### How to set overrides
+
+overrides should be something like this
+
+```
+const overrides = {
+  Badge: {
+    default: {
+      props: {
+        color: palette.primaryColor,
+      },
+      styles: StyleSheet.create({
+        text: {
+          color: 'white',
+        },
+      }),
+    },
+    slim: {
+      styles: StyleSheet.create({
+        badge: {
+          ...someProps,
+        },
+        text: {
+          fontSize: 13,
+        },
+      }),
+    },
+  },
+  Button: {
+    ...someProps,
+  },
+  Card: {
+    ...
+  },
+  ...
+}
+```
+
+check /storybook/theme/light/overrides.ts for example
+
+### How to add variant
+
+
+
+make sure your override object is "as const" literal typed
+```
+import { ExtractVariantKeys } from '@qubic-js/react-native-cask-ui-theme';
+const overrides = {...} as const;
+type ComponentVariantKeys = ExtractVariantKeys<overrides>;
+```
+
+if overrides is a function, make sure to `ReturnType<typeof overrides>`
+```
+const getOverrides = (palette) => {...} as const;
+type ComponentVariantKeys = ExtractVariantKeys<ReturnType<typeof getOverrides>>;
+```
+
+create a theme.d.ts
+```
+declare module '@qubic-js/react-native-cask-ui-theme' {
+  interface ComponentVariants extends ComponentVariantKeys {}
+}
+```

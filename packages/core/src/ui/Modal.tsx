@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { StyleSheet, View, Modal, TouchableWithoutFeedback, NativeSyntheticEvent } from 'react-native';
-import { useOverride } from '@qubic-js/react-native-cask-ui-theme';
+import { useOverride, ComponentVariant } from '@qubic-js/react-native-cask-ui-theme';
 
 const defaultStyles = StyleSheet.create({
   backdrop: {
@@ -43,7 +43,7 @@ const fixedStyles = StyleSheet.create({
 });
 
 export type TModalProps = {
-  variant?: string;
+  variant?: ComponentVariant<'Modal'>;
   animationType?: 'none' | 'slide' | 'fade';
   transparent?: boolean;
   visible?: boolean;
