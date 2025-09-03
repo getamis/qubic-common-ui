@@ -13,7 +13,7 @@ import {
   KeyboardTypeOptions,
 } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { useOverride, useMemoStyles, TColor } from '@qubic-js/react-native-cask-ui-theme';
+import { useOverride, useMemoStyles, TColor, ComponentVariant } from '@qubic-js/react-native-cask-ui-theme';
 
 import DisclosureIndicator from '../svg/DisclosureIndicator';
 
@@ -116,7 +116,7 @@ const fixedStyle = StyleSheet.create({
 });
 
 export type ListItemProps = {
-  variant?: string;
+  variant?: ComponentVariant<'ListItem'>;
   // props
   onPress?: (e: GestureResponderEvent, extra: any) => void;
   disabled?: boolean;

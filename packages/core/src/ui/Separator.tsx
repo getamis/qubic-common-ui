@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { useOverride, useMemoStyles } from '@qubic-js/react-native-cask-ui-theme';
+import { useOverride, useMemoStyles, ComponentVariant } from '@qubic-js/react-native-cask-ui-theme';
 
 const defaultStyles = StyleSheet.create({
   root: {
@@ -10,7 +10,7 @@ const defaultStyles = StyleSheet.create({
 });
 
 export type SeparatorProps = {
-  variant?: string;
+  variant?: ComponentVariant<'Separator'>;
 };
 
 export default React.memo<SeparatorProps>(props => {

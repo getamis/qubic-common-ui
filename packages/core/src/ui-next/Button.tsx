@@ -1,7 +1,6 @@
 import React, { ReactNode, useMemo } from 'react';
 import { StyleSheet, TouchableOpacity, View, Text } from 'react-native';
 import { useOverride } from '@qubic-js/react-native-cask-ui-theme';
-import { $Diff } from 'utility-types';
 
 import type { TouchableOpacityProps, ViewStyle, TextStyle, ImageStyle } from 'react-native';
 
@@ -90,7 +89,7 @@ const defaultStyles = StyleSheet.create({
   textDisabled: {},
 });
 
-export interface ButtonProps extends $Diff<TouchableOpacityProps, { style?: unknown; children?: unknown }> {
+export interface ButtonProps extends Omit<TouchableOpacityProps, 'style' | 'children'> {
   /**
    * The variant to use.
    */

@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { useOverride, useMemoStyles } from '@qubic-js/react-native-cask-ui-theme';
+import { useOverride, useMemoStyles, ComponentVariant } from '@qubic-js/react-native-cask-ui-theme';
 
 const defaultStyles = StyleSheet.create({
   root: {
@@ -25,7 +25,7 @@ export interface CardProps {
   /**
    * The variant to use.
    */
-  variant?: string;
+  variant?: ComponentVariant<'Card'>;
   /**
    * Anything inside the card.
    */

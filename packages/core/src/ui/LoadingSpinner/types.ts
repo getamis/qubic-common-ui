@@ -1,8 +1,8 @@
 import { ComponentType } from 'react';
-import { TColor } from '@qubic-js/react-native-cask-ui-theme';
+import { TColor, ComponentVariant } from '@qubic-js/react-native-cask-ui-theme';
 
 type BaseProps = {
-  variant?: string;
+  variant?: ComponentVariant<'LoadingSpinner'>;
   color?: TColor;
   size?: number | 'small' | 'large';
 };
